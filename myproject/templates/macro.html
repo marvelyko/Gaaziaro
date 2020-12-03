@@ -3,7 +3,7 @@
         <div class="col-lg-3">
             <div class="product-item">
                 <div class="product-title">
-                    <a href="product-detail.html">Product Name</a>
+                    <a href="product-detail.html">{{product.name}}</a>
                     <div class="ratting">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -21,7 +21,7 @@
                     <div class="product-action">
                         <a href="cart.html"><i class="fa fa-cart-plus"></i></a>
                         <a href="wishlist.html"><i class="fa fa-heart"></i></a>
-                        <a href="product-detail.html"><i class="fa fa-search"></i></a>
+                        <a href="{{url_for('product.product',id=product.id)}}"><i class="fa fa-search"></i></a>
                     </div>
                 </div>
                 <div class="product-price">
