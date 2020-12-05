@@ -1,11 +1,10 @@
-from flask import Blueprint,render_template,redirect,url_for,flash
+from flask import Blueprint, render_template, redirect, url_for, flash, current_app
 import flask
 from flask_login import current_user,login_user,logout_user,login_required
 from myproject.models import User,Admin,Product,Category
 from myproject.admin.forms import AdminLoginForm,AddProductForm,AddCategoryFrom
 from myproject import app,login_manager,db,basedir
 from functools import wraps
-from werkzeug.utils import secure_filename
 import os
 
 admin_blueprint = Blueprint("admin",__name__,template_folder="templates/admin")
@@ -58,10 +57,10 @@ def add_products():
         product = Product(form.name.data,"Bog.ge",form.stock.data,100)
         path = os.path.join(basedir,"static","uploads",form.img.data.filename)
         form.img.data.save(path)
-        product.image = os.path.join("static","uploads",form.img.data.filename)
+        product.image = form.img.data.filename
         product.sold_quantity = 0
         product.expire_data = form.expireDate.data
-        product.category = Category.query.filter_by(name=form.category.data)
+        product.category = Category.query.filter_by(name=form.category.data).first()
         db.session.add(product)
         db.session.commit()
     return render_template("add-product.html",form=form)

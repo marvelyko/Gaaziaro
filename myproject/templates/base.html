@@ -140,11 +140,11 @@
                                 </ul><!-- dropdown-menu -->
 
                             </div><!-- /.dropdown -->
-                            <a href="product-list.html" class="nav-item nav-link">Hygiene Items</a>
-                            <a href="product-list.html" class="nav-item nav-link">Beauty</a>
-                            <a href="product-list.html" class="nav-item nav-link">Grocery</a>
+                            <a href="{{ url_for('category.hygiene') }}" class="nav-item nav-link">Hygiene Items</a>
+                            <a href="{{ url_for('category.beauty') }}" class="nav-item nav-link">Beauty</a>
+                            <a href="{{url_for('category.grocery')}}" class="nav-item nav-link">Grocery</a>
                             <a href="{{url_for('category.health')}}" class="nav-item nav-link">Health</a>
-                            <a href="product-list.html" class="nav-item nav-link">Charity</a>
+                            <a href="{{url_for('category.charity')}}" class="nav-item nav-link">Charity</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="dropdown-toggle nav-login" style="line-height: 38px;" data-toggle="dropdown">more pages</a>
                                 <div class="dropdown-menu" id="nav-drpdwn" style="margin-top: -2px;">

@@ -20,7 +20,7 @@ class Product(db.Model):
     sold_quantity = db.Column(db.Float)
     rating = db.Column(db.Float)
     comments = db.Column(db.String)
-    category = db.relationship("Category",backref="product",lazy="dynamic")
+    category_id = db.Column(db.Integer,db.ForeignKey("categories.id"))
     #admins = db.relationship('Admin',backref='admins')
     consultant = db.Column(db.String)
     tags = db.Column(db.String)
@@ -108,8 +108,8 @@ class Admin(db.Model):
 class Category(db.Model):
     __tablename__ = "categories"
     id = db.Column(db.Integer,primary_key=True)
-    name = db.Column(db.String,unique=True)
-    product_id = db.Column(db.Integer,db.ForeignKey("products.id"))
+    name = db.Column(db.String)
+    products = db.relationship("Product",backref="category",lazy="dynamic")
 
     def __init__(self,name):
         self.name = name
