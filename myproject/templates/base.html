@@ -52,11 +52,11 @@
                         <div class="user">
                             <a href="wishlist.html" class="btn wishlist">
                                 <i class="fa fa-heart"></i>
-                                <span>(0)</span>
+                                <span id="wish-list-count"></span>
                             </a>
                             <a href="cart.html" class="btn cart">
                                 <i class="fa fa-shopping-cart"></i>
-                                <span>(0)</span>
+                                <span id="cart-item-count"></span>
                             </a>
                         </div>
                     </div>
@@ -290,5 +290,6 @@
         <!-- Template Javascript -->
         <script src="{{url_for('static',filename='js/main.js')}}"></script>
         <script type="text/javascript" src="{{url_for('static',filename='js/megamenu.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static',filename='js/script.js')}}"></script>
     </body>
 </html>

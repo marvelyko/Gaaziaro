@@ -1,46 +1,9 @@
 {% macro products(product_list) %}
     {%  if product_list|length >= 4 %}
     <div class="row align-items-center product-slider product-slider-4">
-        {% for product in product_list %}
-            <div class="col-lg-3">
-                <div class="product-item">
-                    <div class="product-title">
-                        <a href="product-detail.html">{{product.name}}</a>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <a style="position: relative;" href="product-detail.html">
-                            <img src="{{url_for('static',filename='uploads/'+product.image)}}" alt="Product Image">
-                            <div class="progressivebar"><p>200KG/100KG</p>
-                            </div>
-                        </a>
-                        <div class="product-action">
-                            <a href="cart.html"><i class="fa fa-cart-plus"></i></a>
-                            <a href="wishlist.html"><i class="fa fa-heart"></i></a>
-                            <a href="{{url_for('product.product',id=product.id)}}"><i class="fa fa-search"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-price">
-                        <a href="{{url_for('product.product',id=product.id)}}"><h2>Details</h2></a>
-
-                        <h3><span>$</span>99</h3>
-                        <a class="btn" href="cart.html"><i class="fa fa-shopping-cart"></i>Buy Now</a>
-                    </div>
-                    <div id="progress" style="height:20px">
-                            <div class="progress-bar progress-bar-striped" style="width:50%; height:20px">50%</div>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-    {%  else %}
+    {% else %}
     <div class="row align-items-center product-slider">
+    {%  endif %}
         {% for product in product_list %}
             <div class="col-lg-3">
                 <div class="product-item">
@@ -61,8 +24,8 @@
                             </div>
                         </a>
                         <div class="product-action">
-                            <a href="cart.html"><i class="fa fa-cart-plus"></i></a>
-                            <a href="wishlist.html"><i class="fa fa-heart"></i></a>
+                            <a><i class="fa fa-cart-plus" onclick="addToCart({{ product.id }})"></i></a>
+                            <a><i class="fa fa-heart" onclick="addToWish({{ product.id }})"></i></a>
                             <a href="{{url_for('product.product',id=product.id)}}"><i class="fa fa-search"></i></a>
                         </div>
                     </div>
@@ -79,7 +42,6 @@
             </div>
         {% endfor %}
     </div>
-    {%  endif %}
 {% endmacro %}
 
 {% macro category_products(product_list) %}
