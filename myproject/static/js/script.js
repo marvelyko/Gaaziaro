@@ -14,16 +14,16 @@ function addToCart(id){
 
 function addToWish(id){
     storage = window.sessionStorage;
-    var wishList = JSON.parse(storage.cart);
+    var wishList = JSON.parse(storage.wish);
     if(wishList.includes(id)){
         wishList = wishList.filter(item => item !== id);
     }
     else{
         wishList.push(id);
     }
-    cartCount = document.getElementById('wish-item-count');
-    cartCount.innerText = wishList.length;
-    storage.setItem('cart',JSON.stringify(wishList));
+    wishCount = document.getElementById('wish-item-count');
+    wishCount.innerText = wishList.length;
+    storage.setItem('wish',JSON.stringify(wishList));
 }
 
 window.onload = function(){
@@ -36,10 +36,10 @@ window.onload = function(){
         cartList = new Array();
         storage.setItem('cart',JSON.stringify(cartList));
     }
-    var wishList = JSON.parse(storage.cart);
-    cartCount = document.getElementById('wish-item-count');
-    cartCount.innerText = wishList.length;
-    storage.setItem('cart',JSON.stringify(wishList));
+    var wishList = JSON.parse(storage.wish);
+    wishCount = document.getElementById('wish-item-count');
+    wishCount.innerText = wishList.length;
+    storage.setItem('wish',JSON.stringify(wishList));
 
     var cartList = JSON.parse(storage.cart);
     cartCount = document.getElementById('cart-item-count');
