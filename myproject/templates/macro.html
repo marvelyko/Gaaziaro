@@ -24,8 +24,8 @@
                             </div>
                         </a>
                         <div class="product-action">
-                            <a><i class="fa fa-cart-plus" onclick="addToCart({{ product.id }})"></i></a>
-                            <a><i class="fa fa-heart" onclick="addToWish({{ product.id }})"></i></a>
+                            <a onclick="addToCart({{ product.id }})"><i class="fa fa-cart-plus"></i></a>
+                            <a onclick="addToWish({{ product.id }})"><i class="fa fa-heart"></i></a>
                             <a href="{{url_for('product.product',id=product.id)}}"><i class="fa fa-search"></i></a>
                         </div>
                     </div>
