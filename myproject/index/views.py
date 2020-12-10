@@ -36,7 +36,7 @@ def cart_count():
         return {"itemCount": len(session["cart"])}
 
 @index_blueprint.route("/addToWish/<int:id>")
-def add_cart_item(id):
+def add_wish_item(id):
     if "wish" not in session:
         session["wish"] = []
     wish_list = session["wish"]
@@ -49,7 +49,7 @@ def add_cart_item(id):
     return data
 
 @index_blueprint.route("/getWishCount")
-def cart_count():
+def wish_count():
     if "wish" not in session:
         return {"itemCount": 0}
     else:
