@@ -22,9 +22,11 @@ from myproject.admin.views import admin_blueprint
 from myproject.index.views import index_blueprint
 from myproject.category.views import category_blueprint
 from myproject.product.views import product_blueprint
+from myproject.cart.views import cart_blueprint
 
 app.register_blueprint(auth_blueprint,url_prefix="/")
 app.register_blueprint(admin_blueprint,url_prefix="/admin")
 app.register_blueprint(index_blueprint,url_prefix="/")
 app.register_blueprint(category_blueprint,url_prefix="/category")
 app.register_blueprint(product_blueprint,url_prefix="/product")
+app.register_blueprint(cart_blueprint,url_prefix="/cart")

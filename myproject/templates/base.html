@@ -47,11 +47,11 @@
                     </div>
                     <div class="col-md-3">
                         <div class="user">
-                            <a href="wishlist.html" class="btn wishlist">
+                            <div id="wishlist" class="btn wishlist">
                                 <i class="fa fa-heart"></i>
                                 <span id="wish-item-count"></span>
-                            </a>
-                            <a href="cart.html" class="btn cart">
+                            </div>
+                            <a href="{{url_for('cart.cart')}}" class="btn cart">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span id="cart-item-count"></span>
                             </a>
@@ -288,5 +288,7 @@
         <script src="{{url_for('static',filename='js/main.js')}}"></script>
         <script type="text/javascript" src="{{url_for('static',filename='js/megamenu.js')}}"></script>
         <script type="text/javascript" src="{{url_for('static',filename='js/script.js')}}"></script>
+        {% block scripts%}
+        {% endblock %}
     </body>
 </html>
